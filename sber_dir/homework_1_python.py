@@ -6,7 +6,7 @@ import csv
 # Сколько вакансий для аналитика данных? 21
 # Сколько вакансий для аналитика данных с использованием Python?  8
 
-destination_file_path = 'целевой_файл.csv'
+
 
 str_ = 'Python'
 str_1 = 'менеджер'
@@ -20,10 +20,9 @@ date_list = []
 c = 0
 l = []
 with open(file, mode='r', newline='', encoding='utf-8') as csvfile:
-    with open(destination_file_path, mode='w', newline='', encoding='utf-8') as destination_file:
-        csv_reader = csv.reader(csvfile)
-        # пропускаем первую строчку
-        next(csv_reader)
+    csv_reader = csv.reader(csvfile)
+     # пропускаем первую строчку
+    next(csv_reader)
     for i, row in enumerate(csv_reader):
         c += 1
         date_list.append(row[6])
@@ -51,3 +50,12 @@ print(f'Есть ли вакансии менеджеров с использо�
 # source_file_path = 'исходный_файл.csv'
 print(f'Сколько вакансий для аналитика данных? - {len(data_analyst)} вакансий')
 print(f'Сколько вакансий для аналитика данных с использованием Python?  - {len(data_analyst_python)} вакансий')
+
+
+from tqdm import tqdm
+import time
+
+# Пример цикла с прогресс-баром
+for i in tqdm(range(100), desc="Обработка"):
+    # Имитация работы
+    time.sleep(0.1)  # Задержка для демонстрации прогресс-бара
